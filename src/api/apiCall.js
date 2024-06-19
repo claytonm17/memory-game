@@ -11,4 +11,18 @@ async function randomApiCall() {
 
 }
 
-export default randomApiCall;
+async function apiCall() {
+    console.log("Starting API call")
+
+    try {
+        const response = await randomApiCall()
+        console.log("Complete:", response)
+        return response
+
+    } catch(error) {
+        console.error("Call failed:", error)
+        return null
+    }
+}
+
+export default apiCall;
