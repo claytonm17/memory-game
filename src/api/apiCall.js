@@ -1,26 +1,27 @@
-async function randomApiCall() {
+function randomNumber() {
     // 1025 pokemon currently
-    const randomID = Math.floor(Math.random() * 1025)
+    return Math.floor(Math.random() * 1025) + 1
+}
 
-    const apiEndpoint = `https://pokeapi.co/api/v2/pokemon/${randomID}/`
+async function randomApiCall(index) {
+    const apiEndpoint = `https://pokeapi.co/api/v2/pokemon/${index}/`
 
     const response = await fetch(apiEndpoint)
 
     const data = await response.json()
-    return data
 
+    return data
 }
 
 async function apiCall() {
-    console.log("Starting API call")
-
+    //console.log("Starting API call")
     try {
-        const response = await randomApiCall()
-        console.log("Complete:", response)
+        const response = await randomApiCall(randomNumber())
+        //console.log("Complete:", response)
         return response
 
     } catch(error) {
-        console.error("Call failed:", error)
+        //console.error("Call failed:", error)
         return null
     }
 }
