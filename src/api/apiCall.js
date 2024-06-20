@@ -13,10 +13,10 @@ async function randomApiCall(index) {
     return data
 }
 
-async function apiCall() {
+async function apiCall(index) {
     //console.log("Starting API call")
     try {
-        const response = await randomApiCall(randomNumber())
+        const response = await randomApiCall(index ? index : randomNumber())
         //console.log("Complete:", response)
         return response
 

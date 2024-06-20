@@ -22,14 +22,18 @@ function App() {
     setLoading(false)
   }
 
+  function upperCase(string) {
+    return string[0].toUpperCase() + string.slice(1)
+  }
+
   return (
     <>
-      <div className="pokemon-card">
+      <div className="card">
         { loading ? 
           ( <p>Loading...</p> ) : (
             <>
-              <img src={pokemon.sprites.front_default} alt={`Sprite of ${pokemon.name}`} />
-              <p>{pokemon.name}</p>
+              <img src={pokemon.sprites.front_default} alt={`Sprite of ${pokemon.name}`} className='sprite'/>
+              <p>{upperCase(pokemon.name)}</p>
             </>
           )
         }
