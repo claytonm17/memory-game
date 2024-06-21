@@ -4,7 +4,7 @@ class Gameloop {
     constructor() {
         this.score = 0; // Score will increase as user selects "non-selected" cards
         this.deck = [];
-        this.correct = 0;
+        this.size = 5;
         this.state = {
             isRunning: false,
         }
@@ -14,15 +14,15 @@ class Gameloop {
         this.state.isRunning = true
         // Generate a set of 5 numbers (index for pokemon)
         const cards = new Set()
-        while (cards.size < 5) {
-            const maxIndex = 1025
+        while (cards.size < this.size) {
+            const maxIndex = 5
 
             const randomNum = Math.floor(Math.random() * maxIndex) + 1
 
-            cards.add(new Card(randomNum))
+            cards.add(randomNum)
         }
         for (const card of cards) {
-            this.deck.push(card);
+            this.deck.push(new Card(card));
         }
     }
 
@@ -36,24 +36,36 @@ class Gameloop {
         console.log()
     }
 
-    turn(position) {
-        // Lose condition
-        if (this.deck[position].selected === true) {
-            console.log("You lose!")
-            this.state.isRunning = false
-        } 
-        else {
-            this.deck[position].selected = true;
-            this.score += 1
+    // Change this so that the index of card is what is being searched
+    turn(index) {
+        for (const card of this.deck) {
+            if (card.index === index) { // Found
+                
+                if (card.selected) {
+                    console.log("You lose!")
+                    this.state.isRunning = false
+                } 
+                else {
+                    card.selected = true
+                    this.score += 1
+                }
+                if (this.score === this.size) {
+                    console.log("You win!")
+                    this.state.isRunning = false
+                }
+            }
         }
     }
 }
 
 const game = new Gameloop
-game.debug()
 game.start()
 game.debug()
-game.turn(0)
+game.turn(5)
+game.turn(1)
+game.turn(2)
+game.turn(3)
+game.turn(4)
 game.debug()
 
 export default Gameloop
