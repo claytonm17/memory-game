@@ -1,7 +1,6 @@
 import apiCall from './apiCall.js'
+import Gameloop from './game.js'
 
-const pokemon = await apiCall()
-
-console.log(pokemon.name)
+const game = new Gameloop
 
 export default apiCall
