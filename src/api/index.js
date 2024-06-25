@@ -1,5 +1,5 @@
 import apiCall from './apiCall.js'
-import Gameloop from './game.js'
+import Gameloop from './card.js'
 
 const game = new Gameloop
 

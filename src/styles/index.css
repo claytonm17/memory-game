@@ -17,6 +17,11 @@
   font-optical-sizing: auto;
 }
 
+#root {
+  display: flex;
+  gap: 1em;
+}
+
 a {
   font-weight: 500;
   color: #646cff;

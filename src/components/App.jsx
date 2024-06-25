@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import apiCall from '../api/index'
-import '../styles/App.css'
+import '../styles/card.css'
 
 
-function App() {
+function Card() {
   const [pokemon, setPokemon] = useState(null)
   const [loading, setLoading] = useState(true)
 
@@ -42,5 +42,3 @@ function App() {
     </>
   )
 }
-
-export default App
