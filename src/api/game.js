@@ -15,7 +15,7 @@ class Gameloop {
         // Generate a set of 5 numbers (index for pokemon)
         const cards = new Set()
         while (cards.size < this.size) {
-            const maxIndex = 5
+            const maxIndex = 1025 // Highest number a pokemon can be!
 
             const randomNum = Math.floor(Math.random() * maxIndex) + 1
 
@@ -60,6 +60,8 @@ class Gameloop {
 
 const game = new Gameloop
 game.start()
+console.log(game.deck[0].index)
+/*
 game.debug()
 game.turn(5)
 game.turn(1)
@@ -67,5 +69,5 @@ game.turn(2)
 game.turn(3)
 game.turn(4)
 game.debug()
-
+*/
 export default Gameloop
