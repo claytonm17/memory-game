@@ -13,9 +13,14 @@
   background-color: #cad2c5;
 }
 
+.card:hover {
+  background-color: #52796f;
+}
+
 .card {
   background-color: #354f52;
   border-radius: 1em;
+  cursor: pointer;
 }
 
 .card > p {

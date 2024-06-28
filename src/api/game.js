@@ -37,7 +37,7 @@ class Gameloop {
     }
 
     // Change this so that the index of card is what is being searched
-    turn(index) {
+    select(index) {
         for (const card of this.deck) {
             if (card.index === index) { // Found
                 
@@ -60,7 +60,7 @@ class Gameloop {
 
 const game = new Gameloop
 game.start()
-console.log(game.deck[0].index)
+//console.log(game.deck[0].index)
 /*
 game.debug()
 game.turn(5)

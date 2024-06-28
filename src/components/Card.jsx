@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import apiCall from '../api/index'
 import '../styles/card.css'
 
-function Card({ index }) {
+function Card({ index, onClick }) {
     const [pokemon, setPokemon] = useState(null)
     const [loading, setLoading] = useState(true)
   
@@ -20,7 +20,7 @@ function Card({ index }) {
     }
   
     return (
-        <div className="card">
+        <div className="card" onClick={() => onClick(index)}>
           { loading ? 
             ( <p>Loading...</p> ) : (
               <>
