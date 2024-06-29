@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+//import { useState, useEffect } from 'react'
 import Card from '../components/Card.jsx'
 import Game from '../api/game.js'
 
@@ -6,13 +6,15 @@ function App() {
 
   const game = new Game
   game.start()
-  game.debug()
+  //game.debug()
 
   const handleCardClick = (index) => {
-  game.select(index)
-  game.shuffle()
-  game.debug()
-}
+    game.select(index)
+    game.shuffle()
+    game.debug()
+  }
+
+  // 
 
   return (
     <>

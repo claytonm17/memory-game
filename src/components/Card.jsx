@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import apiCall from '../api/index'
 import '../styles/card.css'
 
@@ -31,6 +32,11 @@ function Card({ index, onClick }) {
           }
         </div>
     )
-  }
+}
+
+Card.propTypes = {
+  index: PropTypes.number.isRequired,
+  onClick: PropTypes.func.isRequired,
+}
   
-  export default Card
+export default Card
