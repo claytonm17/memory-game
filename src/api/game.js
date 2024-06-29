@@ -4,7 +4,7 @@ class Gameloop {
     constructor() {
         this.score = 0; // Score will increase as user selects "non-selected" cards
         this.deck = [];
-        this.size = 5;
+        this.size = 6;
         this.state = {
             isRunning: false,
         }
@@ -15,9 +15,10 @@ class Gameloop {
         // Generate a set of 5 numbers (index for pokemon)
         const cards = new Set()
         while (cards.size < this.size) {
-            const maxIndex = 1025 // Highest number a pokemon can be!
+            const maxIndex = 649 // Highest number a pokemon can be!
+            const minIndex = 494
 
-            const randomNum = Math.floor(Math.random() * maxIndex) + 1
+            const randomNum = Math.floor(Math.random() * (maxIndex - minIndex + 1)) + minIndex
 
             cards.add(randomNum)
         }
