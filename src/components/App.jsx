@@ -1,44 +1,28 @@
 import { useState, useEffect } from 'react'
-import apiCall from '../api/index'
-import '../styles/card.css'
+import Card from '../components/Card.jsx'
+import Game from '../api/game.js'
 
+function App() {
 
-function Card() {
-  const [pokemon, setPokemon] = useState(null)
-  const [loading, setLoading] = useState(true)
+  const game = new Game
+  game.start()
+  game.debug()
 
-  useEffect(() => {
-    async function fetchPokemon() {
-      const response = await apiCall()
-      setPokemon(response)
-      setLoading(false)
-    }
-    fetchPokemon()
-  }, [])
-
-  async function handleRandomButton() {
-    const response = await apiCall()
-    setPokemon(response)
-    setLoading(false)
-  }
-
-  function upperCase(string) {
-    return string[0].toUpperCase() + string.slice(1)
-  }
+  const handleCardClick = (index) => {
+  game.select(index)
+  game.shuffle()
+  game.debug()
+}
 
   return (
     <>
-      <div className="card">
-        { loading ? 
-          ( <p>Loading...</p> ) : (
-            <>
-              <img src={pokemon.sprites.front_default} alt={`Sprite of ${pokemon.name}`} className='sprite'/>
-              <p>{upperCase(pokemon.name)}</p>
-            </>
-          )
-        }
-      </div>
-      <button onClick={handleRandomButton}>Random Pokemon</button>
+      <Card index={game.deck[0].index} key={game.deck[0].index} onClick={handleCardClick}/>
+      <Card index={game.deck[1].index} key={game.deck[1].index} onClick={handleCardClick}/>
+      <Card index={game.deck[2].index} key={game.deck[2].index} onClick={handleCardClick}/>
+      <Card index={game.deck[3].index} key={game.deck[3].index} onClick={handleCardClick}/>
+      <Card index={game.deck[4].index} key={game.deck[4].index} onClick={handleCardClick}/>
     </>
   )
 }
+
+export default App

@@ -56,10 +56,26 @@ class Gameloop {
             }
         }
     }
+
+    shuffle() {
+        // Implement Fisher-Yates alg for shuffling deck
+        const size = this.deck.length - 1
+
+        for (let i = size; i > 0; i--) {
+            const j = Math.floor(Math.random() * size);
+            [this.deck[i], this.deck[j]] = [this.deck[j], this.deck[i]] //swap
+        }
+        /*
+        console.log(`After Shuffle:`)
+        for (let card of this.deck) {
+            console.log(card)
+        }*/
+    }
 }
 
 const game = new Gameloop
 game.start()
+game.shuffle()
 //console.log(game.deck[0].index)
 /*
 game.debug()
