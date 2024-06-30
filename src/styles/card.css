@@ -13,20 +13,50 @@
   background-color: #cad2c5;
 }
 
+@keyframes color-fade {
+  from {background-color: #354f52;}
+  to {background-color: #52796f;}
+}
+
 .card:hover {
-  background-color: #52796f;
+  animation: color-fade;
+  animation-duration: 0.5s;
 }
 
 .card {
+  width: 180px;
+  height: 230px;
   background-color: #354f52;
   border-radius: 1em;
   cursor: pointer;
+  perspective: 1000px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s;
 }
 
-.card > p {
+.card-front, .card-back {
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+  position: absolute;
+  border-radius: 1em;
+
+}
+
+.card p {
   font-weight: 700;
-  color: #000000;
+  color: #FFFFFF;
   margin: 0em;
   padding-bottom: 1em;
   font-size: 1.5em;
+}
+
+.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-back {
+  background-color: maroon;
+  transform: rotateY(180deg);
 }
