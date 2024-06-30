@@ -29,7 +29,7 @@ function App() {
   };
 
   return (
-    <>
+    <div className="card-deck">
       {deck.slice(0, game.deck.length).map((card) => (
         <Card 
           index={card.index} 
@@ -38,7 +38,7 @@ function App() {
           flipped={flipping}
         />
       ))}
-    </>
+    </div>
   )
 }
 

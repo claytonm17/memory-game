@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import apiCall from '../api/index'
+import apiCall from '../api/apiCall'
 import '../styles/card.css'
 
 function Card({ index, onClick, flipped }) {
