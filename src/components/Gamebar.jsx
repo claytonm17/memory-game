@@ -1,10 +1,22 @@
-//import { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import '../styles/gamebar.css'
 
-function Gamebar() {
+function Gamebar({ score }) {
+
     return (
-        <h1>Gamebar</h1>
+        <nav className="gamebar">
+            <div className="score">
+                <p>Score: {score}</p>
+            </div>
+            <div className="controls">
+                <p>Add Deck Size Selector</p>
+            </div>
+        </nav>
     )
+}
+
+Gamebar.propTypes = {
+    score: PropTypes.number.isRequired,
 }
 
 export default Gamebar

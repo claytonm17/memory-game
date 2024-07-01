@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Card from '../components/Card.jsx'
 import Game from '../api/game.js'
+import Gamebar from '../components/Gamebar.jsx'
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
   });
   const [deck, setDeck] = useState([...game.deck])
   const [flipping, setFlipping] = useState(false)
+  const [score, setScore] = useState(game.score)
 
   useEffect(() => {
     setDeck([...game.deck]); // Initialize deck state
@@ -21,24 +23,33 @@ function App() {
     setFlipping(true)
     setTimeout(() => {
       game.select(index);
-      game.shuffle();
-      setDeck([...game.deck]); // Update state to trigger re-render
-      game.debug();
+      setScore(game.score)
+
+      // Game still running condition
+      if (game.state.isRunning) {
+        game.shuffle();
+        setDeck([...game.deck]); // Update state to trigger re-render
+        game.debug(); 
+      } 
+
       setTimeout(() => setFlipping(false))
     }, 1000) // This MUST match css flip animatio time
   };
 
   return (
-    <div className="card-deck">
-      {deck.slice(0, game.deck.length).map((card) => (
-        <Card 
-          index={card.index} 
-          key={card.index} 
-          onClick={handleCardClick} 
-          flipped={flipping}
-        />
-      ))}
-    </div>
+    <>
+      <Gamebar score={score} />
+      <div className="card-deck">
+        {deck.slice(0, game.deck.length).map((card) => (
+          <Card 
+            index={card.index} 
+            key={card.index} 
+            onClick={handleCardClick} 
+            flipped={flipping}
+          />
+        ))}
+      </div>
+    </>
   )
 }
 

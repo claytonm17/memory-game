@@ -1,3 +1,19 @@
 h1 {
     color: rebeccapurple;
 }
+
+nav.gamebar {
+    display: flex;
+    justify-content: space-around;
+    margin: 1em 0 1em 0;
+    padding: 0.5em;
+    background-color: #354f52;
+    font-weight: 700;
+    font-size: 2em;
+}
+
+.score {
+    background-color: black;
+    padding: 0.1em 1em;
+    border-radius: 0.5em;
+}
