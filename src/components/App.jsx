@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Card from '../components/Card.jsx'
 import Game from '../api/game.js'
 import Gamebar from '../components/Gamebar.jsx'
+import Gameover from '../components/GameOver.jsx'
 
 function App() {
 
@@ -11,9 +12,12 @@ function App() {
     newGame.debug();
     return newGame;
   });
+
   const [deck, setDeck] = useState([...game.deck])
   const [flipping, setFlipping] = useState(false)
   const [score, setScore] = useState(game.score)
+  const [gameover, setGamover] = useState(false)
+  const [isWon, setIsWon] = useState(false)
 
   useEffect(() => {
     setDeck([...game.deck]); // Initialize deck state
@@ -31,6 +35,11 @@ function App() {
         setDeck([...game.deck]); // Update state to trigger re-render
         game.debug(); 
       } 
+      else if (game.state.won) {
+        console.log(game.state)
+        setGamover(true)
+        setIsWon(true)
+      }
 
       setTimeout(() => setFlipping(false))
     }, 1000) // This MUST match css flip animatio time
@@ -49,6 +58,7 @@ function App() {
           />
         ))}
       </div>
+      {isWon && <Gameover gameover={gameover} won={isWon} />}
     </>
   )
 }

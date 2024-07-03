@@ -1,0 +1,23 @@
+.gameover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(0.3em);
+    height: 100vh;
+    width: 100vw;
+}
+
+.popup {
+    background-color: #cad2c5;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 1em 3em;
+}
+
+.popup > p {
+    color: black;
+}

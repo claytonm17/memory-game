@@ -7,6 +7,7 @@ class Gameloop {
         this.size = 6;
         this.state = {
             isRunning: false,
+            won: false,
         }
     }
 
@@ -15,8 +16,8 @@ class Gameloop {
         // Generate a set of 5 numbers (index for pokemon)
         const cards = new Set()
         while (cards.size < this.size) {
-            const maxIndex = 649 // Highest number a pokemon can be!
-            const minIndex = 494
+            const maxIndex = 1025 // Highest number a pokemon can be!
+            const minIndex = 1
 
             const randomNum = Math.floor(Math.random() * (maxIndex - minIndex + 1)) + minIndex
 
@@ -44,6 +45,7 @@ class Gameloop {
                 
                 if (card.selected) {
                     console.log("You lose!")
+                    //this.state.won = false 
                     this.state.isRunning = false
                 } 
                 else {
@@ -52,6 +54,7 @@ class Gameloop {
                 }
                 if (this.score === this.size) {
                     console.log("You win!")
+                    this.state.won = true
                     this.state.isRunning = false
                 }
             }
