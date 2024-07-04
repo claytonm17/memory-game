@@ -6,7 +6,7 @@ import Gameover from '../components/GameOver.jsx'
 
 function App() {
 
-  const [game] = useState(() => {
+  const [game, setGame] = useState(() => {
     const newGame = new Game();
     newGame.start();
     newGame.debug();
@@ -45,6 +45,17 @@ function App() {
     }, 1000) // This MUST match css flip animatio time
   };
 
+  const handleReset = () => {
+    const newGame = new Game()
+    newGame.start()
+    setGame(newGame)
+    setDeck([...game.deck])
+    setScore(0)
+    setGamover(false)
+    setIsWon(false)
+    setFlipping(false)
+  }
+
   return (
     <>
       <Gamebar score={score} />
@@ -58,7 +69,7 @@ function App() {
           />
         ))}
       </div>
-      {gameover && <Gameover isWon={isWon} />}
+      {gameover && <Gameover isWon={isWon} onReset={handleReset}/>}
     </>
   )
 }

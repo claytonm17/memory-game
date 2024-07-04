@@ -34,7 +34,7 @@ function Card({ index, onClick, flipped }) {
             }
           </div>
           <div className='card-back'>
-            <p>Placeholder for pokeball img</p>
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" alt="Sprite of a Pokeball" />
           </div>
         </div>
     )
