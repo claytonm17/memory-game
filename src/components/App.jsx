@@ -35,13 +35,13 @@ function App() {
         setDeck([...game.deck]); // Update state to trigger re-render
         game.debug(); 
       } 
-      else if (game.state.won) {
+      else {
         console.log(game.state)
+        setIsWon(game.state.won)
         setGamover(true)
-        setIsWon(true)
       }
-
-      setTimeout(() => setFlipping(false))
+      // For some reason the cards visually glitch if the 10 isn' there
+      setTimeout(() => setFlipping(false), 10) 
     }, 1000) // This MUST match css flip animatio time
   };
 
@@ -58,7 +58,7 @@ function App() {
           />
         ))}
       </div>
-      {isWon && <Gameover gameover={gameover} won={isWon} />}
+      {gameover && <Gameover isWon={isWon} />}
     </>
   )
 }
