@@ -1,3 +1,3 @@
-import apiCall from './apiCall.js'
+import apiCall from "./apiCall.js";
 
-export default apiCall
+export default apiCall;
