@@ -1,8 +1,12 @@
-# React + Vite
+# Poke-Memory
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Summary
 
-Currently, two official plugins are available:
+> [Live Preview] (https://poke-memory-tau.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A memory game based on pokemon with over 1000 possible pokemon using PokeAPI.  To win you must simply not click the same pokemon more than once.  A reset button is available when you either lose or win the game.
+
+## Technologies Used
+
+- [ReactJS] (https://react.dev/)
+- [PokeAPI] (https://pokeapi.co/)
