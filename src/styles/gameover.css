@@ -8,8 +8,9 @@
 }
 
 .popup {
-    background-color: #cad2c5;
+    background-color: #2D3748;
     margin: 0;
+    border-radius: 1em;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -19,5 +20,29 @@
 }
 
 .popup > p {
-    color: black;
+    color: white;
+}
+
+p.title {
+    font-weight: 700;
+    font-size: 2em;
+}
+
+.reset {
+    margin: 1em;
+    padding: 0.5em 1em;
+    background-color: #A7C4B5;
+    border: none;
+    border-radius: 0.5em;
+}
+
+@keyframes color-fade-2 {
+    from {background-color: #A7C4B5;}
+    to {background-color: #A9D8B8;}
+}
+
+.reset:hover {
+    animation: color-fade-2;
+    animation-duration: 0.5s;
+    cursor: pointer;
 }

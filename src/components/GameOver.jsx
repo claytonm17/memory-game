@@ -5,9 +5,9 @@ function Gameover({ isWon, onReset }) {
     return (
         <div className="gameover">
             <div className="popup">
-                <p>Gameover!</p>
+                <p className='title'>Gameover!</p>
                 <p>{isWon ? "You win!" : "You Lose!"}</p>
-                <button onClick={onReset}>Restart</button>
+                <button className='reset' onClick={onReset}>Restart</button>
             </div>
         </div>
     )
@@ -15,6 +15,7 @@ function Gameover({ isWon, onReset }) {
 
 Gameover.propTypes = {
     isWon: PropTypes.bool.isRequired,
+    onReset: PropTypes.func.isRequired,
 }
 
 export default Gameover
