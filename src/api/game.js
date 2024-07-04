@@ -4,7 +4,7 @@ class Gameloop {
     constructor() {
         this.score = 0; // Score will increase as user selects "non-selected" cards
         this.deck = [];
-        this.size = 6;
+        this.size = 12;
         this.state = {
             isRunning: false,
             won: false,
@@ -75,19 +75,10 @@ class Gameloop {
             console.log(card)
         }*/
     }
+
+    adjust(size) {
+        this.size = size;
+    }
 }
 
-const game = new Gameloop
-game.start()
-game.shuffle()
-//console.log(game.deck[0].index)
-/*
-game.debug()
-game.turn(5)
-game.turn(1)
-game.turn(2)
-game.turn(3)
-game.turn(4)
-game.debug()
-*/
 export default Gameloop
